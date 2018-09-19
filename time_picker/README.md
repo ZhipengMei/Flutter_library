@@ -1,8 +1,9 @@
-# time_picker
+# Time Picker
 
-A new Flutter project.
+Read Flutter more articles at my blog [Here](http://zhipengmei.github.io/site/).
+
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
+For help getting started with Flutter, view the online
 [documentation](https://flutter.io/).
