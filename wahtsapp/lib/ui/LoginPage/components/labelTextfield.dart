@@ -3,16 +3,23 @@ import 'package:flutter/material.dart';
 // Label text align to the left side of the screen with a padding of 40.0
 Widget leftSideLabel(String labeltext, Color color) {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
-      Expanded(
-          child: Padding(
-        padding: EdgeInsets.only(left: 40.0),
-        child: Text(
+      Padding(padding: EdgeInsets.only(left: 40.0)),
+      Text(
           labeltext,
           style: TextStyle(
               color: color, fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
-      ))
+      // Expanded(
+      //     child: Padding(
+      //   padding: EdgeInsets.only(left: 40.0),
+      //   child: Text(
+      //     labeltext,
+      //     style: TextStyle(
+      //         color: color, fontSize: 15.0, fontWeight: FontWeight.bold),
+      //   ),
+      // ))
     ],
   );
 }

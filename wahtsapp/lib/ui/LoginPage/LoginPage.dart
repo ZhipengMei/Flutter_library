@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../LandingPage/components/background_image.dart';
-import '../LandingPage/components/logo.dart';
-import '../LandingPage/components/tagline.dart';
+import '../LandingPage/components/background_image_widget.dart';
+import '../LandingPage/components/logo_widget.dart';
+import '../LandingPage/components/tagline_widget.dart';
 import './components/labelTextfield.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,17 +21,47 @@ class _LoginPageState extends State<LoginPage> {
   //   });
   // }
 
+  // background image with opacity
+  final bgOpacity = 0.4;
+  final bgImage = AssetImage('assets/images/bloom.png');
+  final bgColor = Colors.white;
+
+  // Logo
+  final logoColor = Colors.red;
+  final logoSize = 50.0;
+  final logodata = Icons.chat_bubble_outline;
+  EdgeInsetsGeometry logoPadding;
+
+  // tag line
+  final taglineFontSize = 25.0;
+  final taglineColor = Colors.white;
+
   Widget body(BuildContext context) {
+
+    // current device's height and width
+    final deviceWidth = MediaQuery.of(context).size.width;
+    final deviceHeight = MediaQuery.of(context).size.height;
+
+    // dynamically change the UI componenets' padding, margin
+    if (MediaQuery.of(context).orientation == Orientation.portrait) {
+      logoPadding = EdgeInsets.only(top: deviceWidth * 0.4);
+      // buttonMargin = EdgeInsets.only(left: deviceWidth * 0.1, right: deviceWidth * 0.1, top: deviceWidth * 0.2);
+
+    } else if (MediaQuery.of(context).orientation == Orientation.landscape) {
+      logoPadding = EdgeInsets.only(top: deviceWidth * 0.05);
+      // buttonMargin = EdgeInsets.only(left: deviceWidth * 0.3, right: deviceWidth * 0.3, top: deviceWidth * 0.1);
+    }
+
     return Container(
       height: MediaQuery.of(context).size.height,
-      decoration: backgroundImage(Colors.white),
+      decoration: backgroundImageWidget(bgColor, bgOpacity, bgImage),
       child: Column(
         children: <Widget>[
-          logo(Colors.red, 50.0, EdgeInsets.only(left: 150.0, top: 150.0, right: 150.0)),
-          tagline(Colors.red),
+          logoWidget(logodata, logoColor, logoSize, logoPadding),
+          taglineWidget(taglineColor, taglineFontSize),
           Padding(padding: EdgeInsets.only(bottom: 100.0)),
           labelTextfield(context, false, "EMAIL", Colors.red, Colors.red, 'your_email@something.com'),
-          Divider(height: 24.0),
+          Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
           labelTextfield(context, true, "PASSWORD", Colors.red, Colors.red, '•••••••••'),
         ],
       ),
