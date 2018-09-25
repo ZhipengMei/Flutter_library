@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'button_widget.dart';
 
-Widget flatBtnWidget(Color buttonColor) {
+Widget flatBtnWidget(Color buttonColor, Color buttonTextColor) {
   return FlatButton(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(30.0),
     ),
-    color: Colors.white,
-    highlightColor: Colors.white,
+    color: buttonColor,
+    highlightColor: buttonColor,
     onPressed: () {
       // TODO
     },
@@ -17,7 +17,7 @@ Widget flatBtnWidget(Color buttonColor) {
         "LOGIN",
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: buttonColor,
+          color: buttonTextColor,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -26,6 +26,6 @@ Widget flatBtnWidget(Color buttonColor) {
 }
 
 /// BuildContext context, Color buttonColor, double topPadding
-Widget loginBtnWidget(BuildContext context, double deviceWidth, EdgeInsetsGeometry buttonMargin , Color buttonColor) {
-  return buttonWidget(context, buttonMargin, deviceWidth, buttonColor, flatBtnWidget(buttonColor));
+Widget loginBtnWidget(BuildContext context, double deviceWidth, EdgeInsetsGeometry loginButtonMargin , Color loginButtonColor, Color loginButtonTextColor) {
+  return buttonWidget(context, loginButtonMargin, deviceWidth, loginButtonColor, flatBtnWidget(loginButtonColor, loginButtonTextColor));
 }

@@ -10,7 +10,7 @@ void main() => runApp(MaterialApp(
 
 class HomePage extends StatelessWidget {
 
-  final PageController _controller = PageController(initialPage: 0, viewportFraction: 1.0);
+  final PageController _controller = PageController(initialPage: 1, viewportFraction: 1.0);
 
   @override
   Widget build(BuildContext context) {

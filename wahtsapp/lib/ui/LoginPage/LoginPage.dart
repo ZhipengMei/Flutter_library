@@ -3,6 +3,10 @@ import '../LandingPage/components/background_image_widget.dart';
 import '../LandingPage/components/logo_widget.dart';
 import '../LandingPage/components/tagline_widget.dart';
 import './components/labelTextfield.dart';
+import './components/forgot_password_widget.dart';
+import '../LandingPage/components/button/login_btn_widget.dart';
+import './components/connect_with_text_widget.dart';
+import './components/google_btn_widget.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -16,10 +20,12 @@ class _LoginPageState extends State<LoginPage> {
   // void initState() {
   //   super.initState();
 
-  //   setState(() {te
-  //     emailField = labelTextfield("EMAIL");
-  //   });
+  //   // setState(() {
+  //   //   emailField = labelTextfield("EMAIL");
+  //   // });
   // }
+
+  
 
   // background image with opacity
   final bgOpacity = 0.4;
@@ -36,8 +42,14 @@ class _LoginPageState extends State<LoginPage> {
   final taglineFontSize = 25.0;
   final taglineColor = Colors.white;
 
-  Widget body(BuildContext context) {
+  // Sign in button
+  final loginButtonColor = Colors.redAccent;
+  final loginButtonTextColor = Colors.white;
+  EdgeInsetsGeometry loginButtonMargin;
 
+
+  // merge with multiple components widgets into a login page
+  Widget body(BuildContext context) {
     // current device's height and width
     final deviceWidth = MediaQuery.of(context).size.width;
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -45,11 +57,11 @@ class _LoginPageState extends State<LoginPage> {
     // dynamically change the UI componenets' padding, margin
     if (MediaQuery.of(context).orientation == Orientation.portrait) {
       logoPadding = EdgeInsets.only(top: deviceWidth * 0.4);
-      // buttonMargin = EdgeInsets.only(left: deviceWidth * 0.1, right: deviceWidth * 0.1, top: deviceWidth * 0.2);
+      loginButtonMargin = EdgeInsets.only(left: deviceWidth * 0.1, right: deviceWidth * 0.1, top: deviceWidth * 0.05);
 
     } else if (MediaQuery.of(context).orientation == Orientation.landscape) {
       logoPadding = EdgeInsets.only(top: deviceWidth * 0.05);
-      // buttonMargin = EdgeInsets.only(left: deviceWidth * 0.3, right: deviceWidth * 0.3, top: deviceWidth * 0.1);
+      loginButtonMargin = EdgeInsets.only(left: deviceWidth * 0.3, right: deviceWidth * 0.3, top: deviceWidth * 0.1);
     }
 
     return Container(
@@ -60,9 +72,15 @@ class _LoginPageState extends State<LoginPage> {
           logoWidget(logodata, logoColor, logoSize, logoPadding),
           taglineWidget(taglineColor, taglineFontSize),
           Padding(padding: EdgeInsets.only(bottom: 100.0)),
-          labelTextfield(context, false, "EMAIL", Colors.red, Colors.red, 'your_email@something.com'),
+          labelTextfield(context, false, "EMAIL", Colors.red, Colors.red,
+              'your_email@something.com'),
           Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
-          labelTextfield(context, true, "PASSWORD", Colors.red, Colors.red, '•••••••••'),
+          labelTextfield(
+              context, true, "PASSWORD", Colors.red, Colors.red, '•••••••••'),
+          forgotPasswordWidget(),
+          loginBtnWidget(context, deviceWidth, loginButtonMargin, loginButtonColor, loginButtonTextColor),
+          connectWithTextWidget(context),
+          googleBtnWidget()
         ],
       ),
     );

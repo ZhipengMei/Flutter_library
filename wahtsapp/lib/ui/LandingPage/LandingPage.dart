@@ -32,13 +32,14 @@ class LandingPage extends StatelessWidget {
     EdgeInsetsGeometry signupButtonMargin;
 
     // Sign in button
-    final loginButtonColor = Colors.redAccent;        
+    final loginButtonColor = Colors.white;   
+    final loginButtonTextColor = Colors.redAccent;
     EdgeInsetsGeometry loginButtonMargin;
 
     // dynamically change the UI componenets' padding, margin
     if (MediaQuery.of(context).orientation == Orientation.portrait) {
       logoPadding = EdgeInsets.only(top: deviceWidth * 0.4);
-      signupButtonMargin = EdgeInsets.only(left: deviceWidth * 0.1, right: deviceWidth * 0.1, top: deviceWidth * 0.2);
+      signupButtonMargin = EdgeInsets.only(left: deviceWidth * 0.1, right: deviceWidth * 0.1, top: deviceWidth * 0.4);
       loginButtonMargin = EdgeInsets.only(left: deviceWidth * 0.1, right: deviceWidth * 0.1, top: deviceWidth * 0.1);
     } else if (MediaQuery.of(context).orientation == Orientation.landscape) {
       logoPadding = EdgeInsets.only(top: deviceWidth * 0.05);
@@ -54,7 +55,7 @@ class LandingPage extends StatelessWidget {
           logoWidget(logodata, logoColor, logoSize, logoPadding),
           taglineWidget(taglineColor, taglineFontSize),
           signUpBtnWidget(context, deviceWidth, signupButtonMargin, signupButtonColor),
-          loginBtnWidget(context, deviceWidth, loginButtonMargin, loginButtonColor)
+          loginBtnWidget(context, deviceWidth, loginButtonMargin, loginButtonColor, loginButtonTextColor)
         ],
       ),
     );

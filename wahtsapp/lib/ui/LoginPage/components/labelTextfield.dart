@@ -7,19 +7,10 @@ Widget leftSideLabel(String labeltext, Color color) {
     children: <Widget>[
       Padding(padding: EdgeInsets.only(left: 40.0)),
       Text(
-          labeltext,
-          style: TextStyle(
-              color: color, fontSize: 15.0, fontWeight: FontWeight.bold),
-        ),
-      // Expanded(
-      //     child: Padding(
-      //   padding: EdgeInsets.only(left: 40.0),
-      //   child: Text(
-      //     labeltext,
-      //     style: TextStyle(
-      //         color: color, fontSize: 15.0, fontWeight: FontWeight.bold),
-      //   ),
-      // ))
+        labeltext,
+        style: TextStyle(
+            color: color, fontSize: 15.0, fontWeight: FontWeight.bold),
+      ),
     ],
   );
 }
@@ -28,19 +19,14 @@ Widget leftSideLabel(String labeltext, Color color) {
 BoxDecoration solidLine(Color color) {
   var solidline = BoxDecoration(
       border: Border(
-        bottom: BorderSide(
-          color: color,
-          width: 0.5,
-          style: BorderStyle.solid
-        )
-      )
-    );
-  
+          bottom:
+              BorderSide(color: color, width: 0.5, style: BorderStyle.solid)));
   return solidline;
 }
 
 // textfield widget
-Widget field(BuildContext context, bool obscureText, Color lineColor, String hintText) {
+Widget field(
+    BuildContext context, bool obscureText, Color lineColor, String hintText) {
   return Container(
     width: MediaQuery.of(context).size.width,
     margin: const EdgeInsets.only(left: 40.0, top: 10.0, right: 40.0),
@@ -56,10 +42,9 @@ Widget field(BuildContext context, bool obscureText, Color lineColor, String hin
             obscureText: obscureText,
             textAlign: TextAlign.left,
             decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: hintText,
-              hintStyle: TextStyle(color: Colors.grey)
-            ),
+                border: InputBorder.none,
+                hintText: hintText,
+                hintStyle: TextStyle(color: Colors.grey)),
           ),
         )
       ],
@@ -68,7 +53,8 @@ Widget field(BuildContext context, bool obscureText, Color lineColor, String hin
 }
 
 // a textfield widget combined with a label text on top and a solid line on the bottom
-Widget labelTextfield(BuildContext context, bool obscureText, String labeltext, Color labelColor, Color lineColor, String hintText) {
+Widget labelTextfield(BuildContext context, bool obscureText, String labeltext,
+    Color labelColor, Color lineColor, String hintText) {
   return Container(
     child: Column(
       children: <Widget>[
